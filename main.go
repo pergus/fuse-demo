@@ -148,8 +148,6 @@ func mount(mountpoint string) (err error) {
 		mountpoint,
 		fuse.FSName("eFS"),
 		fuse.Subtype("efs"),
-		fuse.LocalVolume(),
-		fuse.VolumeName("E filesystem"),
 	)
 	if err != nil {
 		return
@@ -181,9 +179,6 @@ func mount(mountpoint string) (err error) {
 		return
 	}
 
-	// Check if the mount process has an error to report.
-	<-c.Ready
-	err = c.MountError
 	return
 }
 

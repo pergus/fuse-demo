@@ -6,4 +6,5 @@ build-src:
 	go build
 
 run:
-	fuse-demo
+	fuse-demo ./mnt
+    fusermount3 -u ./mnt
